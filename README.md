@@ -30,6 +30,11 @@ myDataPreprocessor.generate_bigram_map
 ## Start Search Engine in Command Mode
 
 ```
-myAddressSearchEngine = AddressSearchEngine.new
-myAddressSearchEngine.start
+$ ruby address_search_engine.rb
+```
+
+## Stop Search Engine in Command Mode
+
+```
+$ exit
 ```
