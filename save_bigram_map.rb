@@ -21,20 +21,19 @@ def make_bigram_map(csv_row_index, address_string)
 end
 
 $bigram_map = {}
-$csv_row_index = 0
 
-CSV.foreach("data/KEN_ALL.CSV", headers: false, encoding: "Shift_JIS:UTF-8") do |row|
-  # puts row.inspect
+japan_addresses = JSON.parse(File.read("data/ken_all.json"))
 
-  perfecture = row[6]
-  city_ward = row[7]
-  street = row[8]
+japan_addresses.length.times do |index|
+  address_record = japan_addresses[index.to_s]
 
-  make_bigram_map($csv_row_index, perfecture)
-  make_bigram_map($csv_row_index, city_ward)
-  make_bigram_map($csv_row_index, street)
+  perfecture = address_record[6]
+  city_ward = address_record[7]
+  street = address_record[8]
 
-  $csv_row_index += 1
+  make_bigram_map(index, perfecture)
+  make_bigram_map(index, city_ward)
+  make_bigram_map(index, street)
 end
 
 $bigram_map.each_key do |key|
