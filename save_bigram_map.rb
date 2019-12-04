@@ -37,6 +37,10 @@ CSV.foreach("data/KEN_ALL.CSV", headers: false, encoding: "Shift_JIS:UTF-8") do 
   $csv_row_index += 1
 end
 
+$bigram_map.each_key do |key|
+  $bigram_map[key] = $bigram_map[key].to_a
+end
+
 File.open("data/bigram_map.json", "w") do |f|
   f.write($bigram_map.to_json)
 end
