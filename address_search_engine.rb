@@ -27,5 +27,5 @@ class AddressSearchEngine
 end
 
 ## Usage
-# myAddressSearchEngine = AddressSearchEngine.new
-# myAddressSearchEngine.start
+myAddressSearchEngine = AddressSearchEngine.new
+myAddressSearchEngine.start
